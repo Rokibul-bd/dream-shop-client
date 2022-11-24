@@ -20,7 +20,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                <Link className="btn btn-ghost normal-case text-xl"><h1 className="mb-5 text-xl font-bold"> <span className='text-red-500'>D</span>ream <span className='text-red-500'>S</span>hop</h1></Link>
             </div>
             <div className="navbar-center hidden lg:flex ml-auto">
                 <ul className="menu menu-horizontal p-0">
