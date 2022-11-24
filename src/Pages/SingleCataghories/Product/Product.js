@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 const Product = ({ phone }) => {
     const { name, address, resellPrice, orginalPrice, img, ram, rom } = phone
+
     return (
         <div className="card md:card-side bg-base-100 shadow-xl">
             <img className='w-96' src={img} alt="Movie" />
