@@ -6,6 +6,7 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>About</Link></li>
+        <li><Link to="/login">log in</Link></li>
     </>
     return (
         <div className="navbar bg-slate-100 shadow-lg">

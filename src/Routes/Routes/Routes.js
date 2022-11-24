@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main/Main";
 import Home from "../../Pages/Home/Home";
 import Prodcuts from "../../Pages/SingleCataghories/Products/Prodcuts";
-
-
+import PageNotFound from '../../Pages/PageNotFound/PageNotFound'
+import Login from '../../Pages/Login/Login'
 
 
 const router = createBrowserRouter([
@@ -20,11 +20,19 @@ const router = createBrowserRouter([
                 element: <p>product page</p>
             },
             {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
                 path: '/services/:id',
                 loader: async ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
                 element: <Prodcuts></Prodcuts>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
 
