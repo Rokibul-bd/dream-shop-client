@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,9 +7,11 @@ import { AuthContext } from '../context/AuthProvider';
 
 const SignUp = () => {
     const { register, handleSubmit } = useForm();
-    const { registerUser, updateUser } = useContext(AuthContext)
+    const { registerUser, updateUser, googleSignIn } = useContext(AuthContext)
+    const [signUpError, setSignUpError] = useState('')
     const navigate = useNavigate()
     const handleSignupFrom = data => {
+        setSignUpError('')
         const { email, password, name } = data
         registerUser(email, password)
             .then(creadentialUSer => {
@@ -24,10 +26,17 @@ const SignUp = () => {
                     })
                     .catch(err => console.error(err))
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                console.error(err)
+                setSignUpError(err.message)
+            })
 
     }
-
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(() => { })
+            .catch(err => console.error(err.message))
+    }
     useTitle('Signup')
     return (
         <form onSubmit={handleSubmit(handleSignupFrom)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 my-36 mx-auto pt-12">
@@ -60,6 +69,12 @@ const SignUp = () => {
                         <span className="label-text">Are you create seller Account</span>
                         <input type="checkbox" className="checkbox checkbox-primary" />
                     </label>
+                </div>
+                <label className="label">
+                    <p>{signUpError}</p>
+                </label>
+                <div className="form-control">
+                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Sign Up</button>

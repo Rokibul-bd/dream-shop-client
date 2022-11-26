@@ -1,28 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../context/AuthProvider';
 
 const Login = () => {
     const { handleSubmit, register } = useForm()
     const { loginUser, googleSignIn } = useContext(AuthContext)
+    const [logInError, setLogInError] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathName || '/'
+
     const handleLoginSubmit = data => {
-        console.log(data)
+        setLogInError('')
         const { email, password } = data
         loginUser(email, password)
             .then(() => {
                 console.log('successfully log in user')
-                navigate('/')
+                navigate(from, { replace: true })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+                setLogInError(err.message)
+
+            })
 
     }
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(() => {
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(err => console.error(err))
     }
@@ -51,10 +58,13 @@ const Login = () => {
                         <p className="label-text-alt text-sm">You have to new this website please <Link className='link-hover text-yellow-600' to="/signup">Create an account</Link>  </p>
                     </label>
                 </div>
-                <div className="form-control mt-6">
+                <label className="label">
+                    <p className='text-red-500'>{logInError}</p>
+                </label>
+                <div className="form-control">
                     <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
-                <div className="form-control mt-6">
+                <div className="form-control mt-2">
                     <button className="btn btn-primary">Login</button>
                 </div>
             </div>

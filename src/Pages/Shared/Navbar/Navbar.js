@@ -6,7 +6,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const menuList = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link>Blog</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
         <li><Link>About</Link></li>
         {
             user?.uid ? <>
@@ -17,7 +17,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar bg-slate-100 shadow-lg">
+        <div className="navbar bg-slate-100 shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
