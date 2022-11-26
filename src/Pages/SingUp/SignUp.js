@@ -1,20 +1,28 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../context/AuthProvider';
 
 const SignUp = () => {
     const { register, handleSubmit } = useForm();
-    const { registerUser } = useContext(AuthContext)
+    const { registerUser, updateUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleSignupFrom = data => {
-        console.log(data)
-        const { email, password } = data
+        const { email, password, name } = data
         registerUser(email, password)
             .then(creadentialUSer => {
                 console.log(creadentialUSer)
-                navigate('/')
+                const userInfo = {
+                    displayName: name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        toast.success('Successfully created!');
+                        navigate('/')
+                    })
+                    .catch(err => console.error(err))
             })
             .catch(err => console.error(err))
 
