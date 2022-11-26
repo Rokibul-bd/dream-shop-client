@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { FaCheck } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider';
 
 
 const Product = ({ phone }) => {
     const { user } = useContext(AuthContext)
-    const { email, displayName } = user
-    const { name, address, resellPrice, orginalPrice, img, ram, rom, id } = phone
+    const { name, address, resellPrice, orginalPrice, img, ram, rom, id, stutas } = phone
     const cart = {
-        email: email,
-        userName: displayName,
+        email: user?.email,
+        userName: user?.displayName,
         phone,
     }
 
@@ -39,6 +39,9 @@ const Product = ({ phone }) => {
                     <p className='mb-2'>Address : {address}</p>
                     <p className='mb-2'>Ram : {ram}</p>
                     <p className='mb-2'>Rom: {rom}</p>
+                    <p className='mb-2'>Seller Status: {
+                        stutas && <FaCheck className='text-green-600 inline-block'></FaCheck>
+                    }</p>
                     <div className="flex gap-1">
                         <button onClick={() => handleAddCart(id)} className="btn btn-primary">Add Cart</button>
                         <button className="btn btn-primary">Buy Now</button>

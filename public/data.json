@@ -1,6 +1,7 @@
 [
     {
         "catagoray": "iphone",
+        "logo": "https://i.ibb.co/C9Yczq8/i-Phone-Logo-2007.png ",
         "service": [
             {
                 "_id": "iphone_1",
@@ -58,6 +59,7 @@
     },
     {
         "catagoray": "onePlus",
+        "logo": "https://i.ibb.co/0CC6f21/One-Plus-Logo.png",
         "service": [
             {
                 "id": "onePlus_1",
@@ -102,6 +104,7 @@
     },
     {
         "catagoray": "samsung",
+        "logo": "https://i.ibb.co/mRgvZPZ/Samsung-Logo-2.png",
         "service": [
             {
                 "id": "samsung_1",

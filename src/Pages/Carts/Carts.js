@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthProvider';
 
 const Carts = () => {
     const { user } = useContext(AuthContext)
-    const { data: carts = [] } = useQuery({
+    const { data: carts = [], refetch } = useQuery({
         queryKey: ['cart'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`)
@@ -15,10 +15,26 @@ const Carts = () => {
     })
 
     return (
-        <div className='grid lg:grid-cols-3 my-36 gap-4'>
-            {
-                carts.map(cart => <Cart key={cart._id} cart={cart}></Cart>)
-            }
+        <div>
+            <div className="overflow-x-auto w-full my-36">
+                <h4 className='mb-16 text-xl'>You have total item {carts.length}</h4>
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Buy Now</th>
+                            <th>User Status</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            carts.map(cart => <Cart key={cart._id} refetch={refetch} cart={cart}></Cart>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

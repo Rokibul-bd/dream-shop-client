@@ -1,25 +1,51 @@
 import React from 'react';
-import { FaCheck } from 'react-icons/fa';
-const Cart = ({ cart }) => {
-    const { phone } = cart
-    const { name, orginalPrice, resellPrice, img, stutas } = phone
+import toast from 'react-hot-toast';
+import { FaCheck, FaTrashAlt } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
+const Cart = ({ cart, refetch }) => {
+    const { phone, _id } = cart
+    const { name, orginalPrice, resellPrice, img, stutas, address } = phone
+    useTitle('cart')
+
+    const handleDeleteCart = (id) => {
+        fetch(`http://localhost:5000/cart/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Delete Items successfully!')
+                refetch()
+            })
+
+    }
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-                <img src={img} alt="Shoes" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-center text-center">
-                <h2 className="card-title">{name}</h2>
-                <p>Orginal Price : {orginalPrice}</p>
-                <p>Orginal Price : {resellPrice}</p>
-                {
-                    stutas && <p>Seller stutas : <FaCheck className='text-green-600 inline-block'></FaCheck> </p>
-                }
-                <div className="card-actions">
-                    <button className="btn btn-primary mt-2">Buy Now</button>
+        <tr>
+            <td>
+                <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                            <img src={img} alt={name} />
+                        </div>
+                    </div>
+                    <div>
+                        <div className="font-bold">{name}</div>
+                        <div className="text-sm opacity-70">Orginal price : {orginalPrice}</div>
+                        <div className="text-sm opacity-70">Resell price : {resellPrice}</div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </td>
+            <td>{address}</td>
+            <td>
+                {
+                    stutas && <FaCheck className='text-green-600 inline-block'></FaCheck>
+                }
+            </td>
+            <td><button className="btn btn-primary mt-2">Buy Now</button></td>
+
+            <th>
+                <button onClick={() => handleDeleteCart(_id)} className="mt-2"><FaTrashAlt className='ml-2 text-2xl'></FaTrashAlt> </button>
+            </th>
+        </tr>
 
 
     );
