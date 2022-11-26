@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../context/AuthProvider';
 
 const SignUp = () => {
     const { register, handleSubmit } = useForm();
+    const { registerUser } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleSignupFrom = data => {
         console.log(data)
+        const { email, password } = data
+        registerUser(email, password)
+            .then(creadentialUSer => {
+                console.log(creadentialUSer)
+                navigate('/')
+            })
+            .catch(err => console.error(err))
+
     }
 
     useTitle('Signup')
