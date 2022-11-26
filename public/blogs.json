@@ -1,0 +1,18 @@
+[
+    {
+        "questions": "What are the different ways to manage a state in a React application?",
+        "ans": "Use state hook and Redux to manage the state of React application"
+    },
+    {
+        "questions": "How does prototypical inheritance work?",
+        "ans": "The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object"
+    },
+    {
+        "questions": "What is a unit test? Why should we write unit tests?",
+        "ans": "The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages."
+    },
+    {
+        "questions": "React vs. Angular vs. Vue?",
+        "ans": "React is a javascript library. vue is a javascript framework. Create a single page website with React. React is very popular. And angular is a very scary framework. React builds Facebook. Angular creates google. All are front end technology"
+    }
+]

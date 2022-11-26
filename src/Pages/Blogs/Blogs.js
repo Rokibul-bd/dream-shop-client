@@ -1,9 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Blog from './Blog/Blog';
 
 const Blogs = () => {
+    const { data: blogs = [] } = useQuery({
+        queryKey: ['blogs'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/blogs')
+            const data = res.json()
+            return data
+        }
+    })
     return (
-        <div>
-            <p>Blogs page comming soon</p>
+        <div className='my-36'>
+            {
+                blogs.map(blog => <Blog key={blog._id} blog={blog}></Blog>)
+            }
         </div>
     );
 };

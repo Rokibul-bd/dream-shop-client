@@ -8,7 +8,7 @@ const Prodcuts = () => {
     const phones = products[0].service
     useTitle('catagories')
     return (
-        <div className='grid lg:grid-cols-2 gap-4 my-24'>
+        <div className='grid lg:grid-cols-2 gap-4 my-36'>
             {
                 phones.map((phone, index) => <Product key={index} phone={phone} ></Product>)
             }
