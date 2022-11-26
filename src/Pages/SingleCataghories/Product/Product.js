@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../context/AuthProvider';
 
 
 const Product = ({ phone }) => {
-    const { name, address, resellPrice, orginalPrice, img, ram, rom } = phone
+    const { user } = useContext(AuthContext)
+    const { email, displayName } = user
+    const { name, address, resellPrice, orginalPrice, img, ram, rom, id } = phone
+    const cart = {
+        email: email,
+        userName: displayName,
+        phone,
+    }
 
+    const handleAddCart = () => {
+        fetch('http://localhost:5000/cart', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cart)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Product Successfully added Cart!')
+            })
+            .catch(err => console.error(err))
+    }
     return (
         <div className="card md:card-side bg-base-100 shadow-xl">
             <img className='w-96' src={img} alt="Movie" />
@@ -16,7 +40,7 @@ const Product = ({ phone }) => {
                     <p className='mb-2'>Ram : {ram}</p>
                     <p className='mb-2'>Rom: {rom}</p>
                     <div className="flex gap-1">
-                        <button className="btn btn-primary">Add Cart</button>
+                        <button onClick={() => handleAddCart(id)} className="btn btn-primary">Add Cart</button>
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>

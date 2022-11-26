@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 import Catagory from './Catagory';
 
 const Catagories = () => {
-    const [services, setServices] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/services')
-            .then(res => res.json())
-            .then(data => {
-                setServices(data)
-            })
-    }, [])
+    const { data: services = [] } = useQuery({
+        queryKey: ['services'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/services')
+            const data = res.json()
+            return data
+        }
+    })
+
     return (
         <div>
             <h4 className='text-2xl text-center mt-24'>Catagories</h4>

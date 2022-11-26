@@ -3,6 +3,7 @@
         "catagoray": "iphone",
         "service": [
             {
+                "_id": "iphone_1",
                 "name": "iphone 12",
                 "orginalPrice": 75000,
                 "resellPrice": 32000,
@@ -15,6 +16,7 @@
                 "img": "https://i.ibb.co/PQf8zFy/iphone12.jpg"
             },
             {
+                "_id": "iphone_2",
                 "name": "iphone 6s",
                 "orginalPrice": 36000,
                 "resellPrice": 12000,
@@ -40,6 +42,7 @@
                 "img": "https://i.ibb.co/N1ydW1q/iphone4s.jpg"
             },
             {
+                "_id": "iphone_4",
                 "name": "iphone 11",
                 "orginalPrice": 43999,
                 "resellPrice": 21500,
@@ -57,6 +60,7 @@
         "catagoray": "onePlus",
         "service": [
             {
+                "id": "onePlus_1",
                 "name": "One Plus 9 pro",
                 "orginalPrice": 94999,
                 "resellPrice": 45000,
@@ -69,6 +73,7 @@
                 "img": "https://i.ibb.co/myJTzHF/image.jpg"
             },
             {
+                "id": "onePlus_2",
                 "name": "One Plus 8 pro",
                 "orginalPrice": 94999,
                 "resellPrice": 45000,
@@ -81,6 +86,7 @@
                 "img": "https://i.ibb.co/sm84tnK/One-Plus-8-Pro.jpg"
             },
             {
+                "id": "onePlus_3",
                 "name": "One Plus 9 RT",
                 "orginalPrice": 43000,
                 "resellPrice": 28000,
@@ -98,6 +104,7 @@
         "catagoray": "samsung",
         "service": [
             {
+                "id": "samsung_1",
                 "name": "samsung galaxy J7",
                 "orginalPrice": 19000,
                 "resellPrice": 8000,
@@ -110,6 +117,7 @@
                 "img": "https://i.ibb.co/QJxmrCF/samsung-galaxy-j7.jpg"
             },
             {
+                "id": "samsung_2",
                 "name": "samsung galaxy Note 8",
                 "orginalPrice": 89000,
                 "resellPrice": 58000,
@@ -122,6 +130,7 @@
                 "img": "https://i.ibb.co/D5t7qjK/samsung-galaxy-note-8.jpg"
             },
             {
+                "id": "samsung_3",
                 "name": "samsung galaxy A13",
                 "orginalPrice": 19999,
                 "resellPrice": 6000,
@@ -134,6 +143,7 @@
                 "img": "https://i.ibb.co/3Yb8Rbc/samsung-galaxy-a13.jpg"
             },
             {
+                "id": "samsung_4",
                 "name": "samsung galaxy F13",
                 "orginalPrice": 19999,
                 "resellPrice": 11000,
