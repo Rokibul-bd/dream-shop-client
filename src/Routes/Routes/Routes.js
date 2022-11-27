@@ -10,6 +10,8 @@ import PrivetRoutes from "./PrivetRoutes/PrivetRoutes";
 import Carts from "../../Pages/Carts/Carts";
 import AddCart from "../../Pages/Components/AddCart/AddCart";
 import Deshboard from "../../layout/Deshboard/Deshboard";
+import Bookings from "../../Pages/MyBooking/Boookings/Bookings";
+import Users from "../../Pages/Users/Users/Users";
 
 
 const router = createBrowserRouter([
@@ -53,18 +55,22 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: '/deshbord',
+        path: '/deshboard',
         element: <PrivetRoutes><Deshboard></Deshboard></PrivetRoutes>,
         children: [
             {
-                path: '/deshbord'
+                path: '/deshboard'
             },
             {
-                path: '/deshbord/allusers',
-                element: <p>All Users</p>
+                path: '/deshboard/users',
+                element: <Users></Users>
             },
             {
-                path: '/deshbord/allseller',
+                path: '/deshboard/bookings',
+                element: <Bookings></Bookings>
+            },
+            {
+                path: '/deshboard/allseller',
                 element: <p>All seller</p>
             }
         ]

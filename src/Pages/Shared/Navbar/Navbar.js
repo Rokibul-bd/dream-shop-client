@@ -10,14 +10,14 @@ const Navbar = () => {
         {
             user?.uid ? <>
                 <li><Link to="/myorders">My Cart</Link></li>
-                <li><Link to="/deshbord">Deshbord</Link></li>
+                <li><Link to="/deshboard">Deshbord</Link></li>
                 <li><button onClick={logOut} className='btn btn-ghost'>Log Out</button></li>
             </> : <li><Link to="/login">log in</Link></li>
         }
 
     </>
     return (
-        <div className="navbar bg-slate-100 shadow-md">
+        <div className="navbar bg-base-200 shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

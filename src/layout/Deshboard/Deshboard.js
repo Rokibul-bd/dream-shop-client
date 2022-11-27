@@ -10,12 +10,12 @@ const Deshboard = () => {
                 <div className="drawer-content">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side w-full">
+                <div className="drawer-side w-full bg-base-200 shadow-md">
                     <label htmlFor="deshboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li><Link to="">My Booking</Link></li>
+                        <li><Link to="/deshboard/bookings">My Booking</Link></li>
                         <li><Link to="">Add Product</Link></li>
-                        <li><Link to="">All User</Link></li>
+                        <li><Link to="/deshboard/users">All User</Link></li>
                         <li><Link to="">All Seller</Link></li>
                     </ul>
 

@@ -23,8 +23,8 @@ const Carts = () => {
                         <tr>
                             <th>Name</th>
                             <th>Address</th>
-                            <th>Buy Now</th>
                             <th>User Status</th>
+                            <th>Buy Now</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
