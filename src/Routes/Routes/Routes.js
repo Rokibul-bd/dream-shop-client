@@ -9,6 +9,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import PrivetRoutes from "./PrivetRoutes/PrivetRoutes";
 import Carts from "../../Pages/Carts/Carts";
 import AddCart from "../../Pages/Components/AddCart/AddCart";
+import Deshboard from "../../layout/Deshboard/Deshboard";
 
 
 const router = createBrowserRouter([
@@ -41,13 +42,30 @@ const router = createBrowserRouter([
                 element: <PrivetRoutes> <Carts></Carts> </PrivetRoutes>
             },
             {
-                path: '/myorders',
+                path: '/',
                 element: <PrivetRoutes> <AddCart></AddCart> </PrivetRoutes>
             },
             {
                 path: '/services/:id',
                 loader: async ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
                 element: <Prodcuts></Prodcuts>
+            }
+        ]
+    },
+    {
+        path: '/deshbord',
+        element: <PrivetRoutes><Deshboard></Deshboard></PrivetRoutes>,
+        children: [
+            {
+                path: '/deshbord'
+            },
+            {
+                path: '/deshbord/allusers',
+                element: <p>All Users</p>
+            },
+            {
+                path: '/deshbord/allseller',
+                element: <p>All seller</p>
             }
         ]
     },

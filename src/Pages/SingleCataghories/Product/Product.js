@@ -5,7 +5,7 @@ import AddCart from '../../Components/AddCart/AddCart';
 import { AuthContext } from '../../context/AuthProvider';
 
 
-const Product = ({ phone }) => {
+const Product = ({ phone, setBooking }) => {
     const { user } = useContext(AuthContext)
     const { name, address, resellPrice, orginalPrice, img, ram, rom, id, stutas } = phone
     const cart = {
@@ -45,7 +45,7 @@ const Product = ({ phone }) => {
                     }</p>
                     <div className="flex gap-1">
                         <AddCart onClick={() => handleAddCart(id)}></AddCart>
-                        <button className="btn btn-primary">Buy Now</button>
+                        <label htmlFor='bookingModal' onClick={() => setBooking(phone)} className="btn btn-primary">Booking Now</label>
                     </div>
                 </div>
             </div>

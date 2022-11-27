@@ -9,6 +9,7 @@ const SignUp = () => {
     const { register, handleSubmit } = useForm();
     const { registerUser, updateUser, googleSignIn } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('')
+    useTitle('Signup')
     const navigate = useNavigate()
     const handleSignupFrom = data => {
         setSignUpError('')
@@ -23,6 +24,7 @@ const SignUp = () => {
                     .then(() => {
                         toast.success('Successfully created!');
                         navigate('/')
+                        saveUser(email, name)
                     })
                     .catch(err => console.error(err))
             })
@@ -37,7 +39,21 @@ const SignUp = () => {
             .then(() => { })
             .catch(err => console.error(err.message))
     }
-    useTitle('Signup')
+
+    const saveUser = (email, name) => {
+        const user = { email, name }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err))
+    }
+
     return (
         <form onSubmit={handleSubmit(handleSignupFrom)} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 my-36 mx-auto pt-12">
             <h3 className='text-center text-xl'>Please Sign Up</h3>

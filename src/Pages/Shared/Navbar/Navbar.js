@@ -10,7 +10,7 @@ const Navbar = () => {
         {
             user?.uid ? <>
                 <li><Link to="/myorders">My Cart</Link></li>
-                <li><Link>Deshbord</Link></li>
+                <li><Link to="/deshbord">Deshbord</Link></li>
                 <li><button onClick={logOut} className='btn btn-ghost'>Log Out</button></li>
             </> : <li><Link to="/login">log in</Link></li>
         }
@@ -30,6 +30,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl"><h1 className="mb-5 text-xl font-bold"> <span className='text-red-500'>D</span>ream <span className='text-red-500'>S</span>hop</h1></Link>
+                <label htmlFor="deshboard-drawer" tabIndex={1} className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
             </div>
             <div className="navbar-center hidden lg:flex ml-auto">
                 <ul className="menu menu-horizontal p-0">
