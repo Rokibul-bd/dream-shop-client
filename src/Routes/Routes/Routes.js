@@ -12,6 +12,7 @@ import AddCart from "../../Pages/Components/AddCart/AddCart";
 import Deshboard from "../../layout/Deshboard/Deshboard";
 import Bookings from "../../Pages/MyBooking/Boookings/Bookings";
 import Users from "../../Pages/Users/Users/Users";
+import AdminRoutes from "./AdminRoutes/AdminRoutes";
 
 
 const router = createBrowserRouter([
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/deshboard/users',
-                element: <Users></Users>
+                element: <AdminRoutes><Users></Users></AdminRoutes>
             },
             {
                 path: '/deshboard/bookings',

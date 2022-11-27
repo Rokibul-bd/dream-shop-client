@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
+import { AuthContext } from '../../Pages/context/AuthProvider';
 import Navbar from '../../Pages/Shared/Navbar/Navbar'
 const Deshboard = () => {
+    const { user } = useContext(AuthContext)
+    const [isAdmin] = useAdmin(user?.email)
     return (
         <div>
             <Navbar></Navbar>
@@ -15,8 +19,12 @@ const Deshboard = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         <li><Link to="/deshboard/bookings">My Booking</Link></li>
                         <li><Link to="">Add Product</Link></li>
-                        <li><Link to="/deshboard/users">All User</Link></li>
-                        <li><Link to="">All Seller</Link></li>
+                        {
+                            isAdmin && <>
+                                <li><Link to="/deshboard/users">All User</Link></li>
+                                <li><Link to="">All Seller</Link></li>
+                            </>
+                        }
                     </ul>
 
                 </div>

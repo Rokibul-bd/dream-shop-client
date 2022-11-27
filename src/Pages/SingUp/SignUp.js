@@ -13,7 +13,12 @@ const SignUp = () => {
     const navigate = useNavigate()
     const handleSignupFrom = data => {
         setSignUpError('')
-        const { email, password, name } = data
+        const { email, password, name, cheackSeller } = data
+        if (cheackSeller === 'checked') {
+            console.log('seller')
+        } else {
+            console.log('user')
+        }
         registerUser(email, password)
             .then(creadentialUSer => {
                 console.log(creadentialUSer)
@@ -41,7 +46,10 @@ const SignUp = () => {
     }
 
     const saveUser = (email, name) => {
-        const user = { email, name }
+        const user = {
+            email,
+            name
+        }
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -90,7 +98,7 @@ const SignUp = () => {
                     <p>{signUpError}</p>
                 </label>
                 <div className="form-control">
-                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
+                    <button {...register('cheackSeller')} onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Sign Up</button>
