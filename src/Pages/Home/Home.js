@@ -1,6 +1,6 @@
 import React from 'react';
 import useTitle from '../../hooks/useTitle';
-import Banner from './Banner/Banner';
+import Banner from './Banner/Banners';
 import Catagories from '../Catagories/Catagories';
 
 

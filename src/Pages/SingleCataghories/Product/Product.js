@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck } from 'react-icons/fa';
+import AddCart from '../../Components/AddCart/AddCart';
 import { AuthContext } from '../../context/AuthProvider';
 
 
@@ -43,7 +44,7 @@ const Product = ({ phone }) => {
                         stutas && <FaCheck className='text-green-600 inline-block'></FaCheck>
                     }</p>
                     <div className="flex gap-1">
-                        <button onClick={() => handleAddCart(id)} className="btn btn-primary">Add Cart</button>
+                        <AddCart onClick={() => handleAddCart(id)}></AddCart>
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>

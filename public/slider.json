@@ -1,0 +1,32 @@
+[
+    {
+        "img": "https://i.ibb.co/GpvPwSQ/iphone11.jpg",
+        "para1": "Available in the popular 6.1-inch size and a stunning new 6.7-inch size,2 iPhone 14 and iPhone 14 Plus feature a durable and sleek aerospace-grade aluminum design in five beautiful finishes.",
+        "para2": "Both models have an updated internal design for better thermal performance, gorgeous Super Retina XDR displays with OLED",
+        "id": 1,
+        "next": 2,
+        "prev": 3,
+        "btnText": "Get Iphone",
+        "phone": "Iphone"
+    },
+    {
+        "img": "https://i.ibb.co/Pz0T9TV/One-Plus-9-RT.jpg",
+        "para1": "OnePlus' newest phone has launched, and you can check out our early OnePlus 10T review to see what's up with this new Android device. ",
+        "para2": "The launch event was an hour and a half long, and gave us an exhaustive look at the company's newest mobile, as well as OxygenOS 13,",
+        "id": 2,
+        "next": 3,
+        "prev": 1,
+        "btnText": "Get One Plus",
+        "phone": "One Pluss"
+    },
+    {
+        "img": "https://i.ibb.co/D5t7qjK/samsung-galaxy-note-8.jpg",
+        "para1": "The official communications channel of Samsung Electronics, which provides the latest stories regarding its products, people and businesses. Get access to 250k active Bloggers, Podcasters, Youtubers, and Instagram Influencers in 1500 niche categorie",
+        "para2": "Davis Silver. Aug 31, 2022. Subscribe Subscribe ... The future is most definitely folding and Samsung is leading the way.",
+        "id": 3,
+        "next": 1,
+        "prev": 3,
+        "btnText": "Get Samsung",
+        "phone": "samsung"
+    }
+]

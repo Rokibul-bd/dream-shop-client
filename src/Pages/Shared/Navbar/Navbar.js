@@ -7,9 +7,9 @@ const Navbar = () => {
     const menuList = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/myorders">My Cart</Link></li>
         {
             user?.uid ? <>
+                <li><Link to="/myorders">My Cart</Link></li>
                 <li><Link>Deshbord</Link></li>
                 <li><button onClick={logOut} className='btn btn-ghost'>Log Out</button></li>
             </> : <li><Link to="/login">log in</Link></li>

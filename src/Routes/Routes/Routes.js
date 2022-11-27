@@ -8,6 +8,7 @@ import SignUp from "../../Pages/SingUp/SignUp";
 import Blogs from "../../Pages/Blogs/Blogs";
 import PrivetRoutes from "./PrivetRoutes/PrivetRoutes";
 import Carts from "../../Pages/Carts/Carts";
+import AddCart from "../../Pages/Components/AddCart/AddCart";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/myorders',
                 element: <PrivetRoutes> <Carts></Carts> </PrivetRoutes>
+            },
+            {
+                path: '/myorders',
+                element: <PrivetRoutes> <AddCart></AddCart> </PrivetRoutes>
             },
             {
                 path: '/services/:id',
