@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Seller = ({ seller, refetch, index }) => {
-    const { name, email, _id } = seller
+    const { name, email, _id, stutas } = seller
 
     const handleSellerDelete = id => {
         fetch(`http://localhost:5000/sellers/${id}`, {
@@ -16,13 +16,30 @@ const Seller = ({ seller, refetch, index }) => {
             })
             .catch(err => console.error(err))
     }
+    const handleUserVerify = id => {
+        fetch(`http://localhost:5000/seller/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Seller verifed successfull')
+                refetch()
+            })
+            .catch(err => console.error(err))
+    }
 
     return (
         <tr>
             <th>{index + 1}</th>
             <th>{name}</th>
             <td>{email}</td>
-            <th><button className='btn btn-gost btn-sm'>Verify Seller</button></th>
+            <th>{
+                stutas ? <>
+                    <button className='btn btn-gost btn-sm' disabled>verifyed</button>
+                </> : <button onClick={() => handleUserVerify(_id)} className='btn btn-gost btn-sm'>Verify Seller</button>
+            }
+            </th>
             <th>
                 <button onClick={() => handleSellerDelete(_id)} className="mt-2"><FaTrashAlt className='ml-2 text-2xl'></FaTrashAlt> </button>
             </th>
