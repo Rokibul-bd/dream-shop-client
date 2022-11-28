@@ -13,12 +13,8 @@ const SignUp = () => {
     const navigate = useNavigate()
     const handleSignupFrom = data => {
         setSignUpError('')
-        const { email, password, name, cheackSeller } = data
-        if (cheackSeller === 'checked') {
-            console.log('seller')
-        } else {
-            console.log('user')
-        }
+        const { email, password, name, isSeller } = data
+        console.log(isSeller)
         registerUser(email, password)
             .then(creadentialUSer => {
                 console.log(creadentialUSer)
@@ -29,7 +25,7 @@ const SignUp = () => {
                     .then(() => {
                         toast.success('Successfully created!');
                         navigate('/')
-                        saveUser(email, name)
+                        saveUser(email, name, isSeller)
                     })
                     .catch(err => console.error(err))
             })
@@ -45,10 +41,17 @@ const SignUp = () => {
             .catch(err => console.error(err.message))
     }
 
-    const saveUser = (email, name) => {
+    const saveUser = (email, name, isSeller) => {
+        let seller = '';
+        if (isSeller === 'seller') {
+            seller = 'seller'
+        } else {
+            seller = 'user'
+        }
         const user = {
             email,
-            name
+            name,
+            seller: seller
         }
         fetch('http://localhost:5000/users', {
             method: 'POST',
@@ -91,14 +94,14 @@ const SignUp = () => {
                 <div className="form-control">
                     <label className="label cursor-pointer">
                         <span className="label-text">Are you create seller Account</span>
-                        <input type="checkbox" className="checkbox checkbox-primary" />
+                        <input type="checkbox" value="seller" {...register('isSeller')} className="checkbox checkbox-primary" />
                     </label>
                 </div>
                 <label className="label">
                     <p>{signUpError}</p>
                 </label>
                 <div className="form-control">
-                    <button {...register('cheackSeller')} onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Sign Up</button>

@@ -22,7 +22,7 @@ const Deshboard = () => {
                         <li><Link to="/deshboard/bookings">My Booking</Link></li>
                         {
                             isSeller && <>
-                                <li><Link to="">Add Product</Link></li>
+                                <li><Link to="/deshboard/addproduct">Add Product</Link></li>
                             </>
                         }
 

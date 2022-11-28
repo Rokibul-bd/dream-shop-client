@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import useAdmin from '../../../hooks/useAdmin';
+import useSeller from '../../../hooks/useSeller';
 import Loadding from '../../../Pages/Components/Loadding/Loadding';
 import { AuthContext } from '../../../Pages/context/AuthProvider';
 
 const SellerRoutes = ({ children }) => {
     const { user, loadding } = useContext(AuthContext)
-    const [isSeller, isSellerLoadding] = useAdmin(user?.email)
+    const [isSeller, isSellerLoadding] = useSeller(user?.email)
     const location = useLocation()
     if (loadding || isSellerLoadding) {
         return <Loadding></Loadding>
