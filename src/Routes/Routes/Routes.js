@@ -15,6 +15,7 @@ import Users from "../../Pages/Users/Users/Users";
 import AdminRoutes from "./AdminRoutes/AdminRoutes";
 import SellerRoutes from "./SellerRoutes/SellerRoutes";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
+import Sellers from "../../Pages/Sellers/Sellers";
 
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: '/deshboard/users',
                 element: <AdminRoutes><Users></Users></AdminRoutes>
+            },
+            {
+                path: '/deshboard/sellers',
+                element: <AdminRoutes><Sellers></Sellers> </AdminRoutes>
             },
             {
                 path: '/deshboard/bookings',

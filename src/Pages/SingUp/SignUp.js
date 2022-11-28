@@ -100,11 +100,11 @@ const SignUp = () => {
                 <label className="label">
                     <p>{signUpError}</p>
                 </label>
-                <div className="form-control">
-                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
-                </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Sign Up</button>
+                </div>
+                <div className="form-control">
+                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
             </div>
         </form>

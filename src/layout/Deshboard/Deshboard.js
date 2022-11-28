@@ -28,8 +28,8 @@ const Deshboard = () => {
 
                         {
                             isAdmin && <>
-                                <li><Link to="/deshboard/users">All User</Link></li>
-                                <li><Link to="">All Seller</Link></li>
+                                <li><Link to="/deshboard/users">All Buyer</Link></li>
+                                <li><Link to="/deshboard/sellers">All Seller</Link></li>
                             </>
                         }
                     </ul>

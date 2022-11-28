@@ -17,6 +17,7 @@ const Login = () => {
         const { email, password } = data
         loginUser(email, password)
             .then(() => {
+
                 console.log('successfully log in user')
                 navigate(from, { replace: true })
             })
