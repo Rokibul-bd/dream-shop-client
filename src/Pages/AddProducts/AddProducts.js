@@ -13,7 +13,7 @@ const AddProducts = () => {
     const { data: sellers = [] } = useQuery({
         queryKey: ['sellers', email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/sellers/${email}`)
+            const res = await fetch(`https://dream-shop-server.vercel.app/sellers/${email}`)
             const data = res.json()
             return data
         }
@@ -33,7 +33,7 @@ const AddProducts = () => {
             seller: displayName,
             stutas
         }
-        fetch(`http://localhost:5000/services/${catagoray}`, {
+        fetch(`https://dream-shop-server.vercel.app/services/${catagoray}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

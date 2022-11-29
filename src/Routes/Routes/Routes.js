@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                loader: async ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: async ({ params }) => fetch(`https://dream-shop-server.vercel.app/services/${params.id}`),
                 element: <Prodcuts></Prodcuts>
             }
         ]

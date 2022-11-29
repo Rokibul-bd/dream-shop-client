@@ -7,7 +7,7 @@ const Users = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users')
+            const res = await fetch('https://dream-shop-server.vercel.app/users')
             const data = res.json()
             return data
         }

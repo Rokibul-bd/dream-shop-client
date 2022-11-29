@@ -15,7 +15,7 @@ const BookingModal = ({ booking, setBooking }) => {
             booking,
             mettingAddress: data.mettingAddress
         }
-        fetch('http://localhost:5000/booking', {
+        fetch('https://dream-shop-server.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

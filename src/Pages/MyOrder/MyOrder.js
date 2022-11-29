@@ -6,7 +6,7 @@ const MyOrder = ({ myOrder, refetch }) => {
     const { _id } = myOrder
     const { name, orginalPrice, resellPrice, img, stutas, address } = myOrder.booking
     const handleBookingDelete = id => {
-        fetch(`http://localhost:5000/booking/${id}`, {
+        fetch(`https://dream-shop-server.vercel.app/booking/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

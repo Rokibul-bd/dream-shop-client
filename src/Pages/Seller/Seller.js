@@ -6,7 +6,7 @@ const Seller = ({ seller, refetch, index }) => {
     const { name, email, _id, stutas } = seller
 
     const handleSellerDelete = id => {
-        fetch(`http://localhost:5000/sellers/${id}`, {
+        fetch(`https://dream-shop-server.vercel.app/sellers/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -17,7 +17,7 @@ const Seller = ({ seller, refetch, index }) => {
             .catch(err => console.error(err))
     }
     const handleUserVerify = id => {
-        fetch(`http://localhost:5000/seller/${id}`, {
+        fetch(`https://dream-shop-server.vercel.app/seller/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

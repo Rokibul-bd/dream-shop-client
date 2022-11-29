@@ -8,7 +8,7 @@ const Cart = ({ cart, refetch }) => {
     useTitle('cart')
 
     const handleDeleteCart = (id) => {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://dream-shop-server.vercel.app/cart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

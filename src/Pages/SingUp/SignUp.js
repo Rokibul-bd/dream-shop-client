@@ -53,7 +53,7 @@ const SignUp = () => {
             name,
             seller: seller
         }
-        fetch('http://localhost:5000/users', {
+        fetch('https://dream-shop-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

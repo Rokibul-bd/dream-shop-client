@@ -8,7 +8,7 @@ const Carts = () => {
     const { data: carts = [], refetch } = useQuery({
         queryKey: ['cart'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/cart?email=${user?.email}`)
+            const res = await fetch(`https://dream-shop-server.vercel.app/cart?email=${user?.email}`)
             const data = res.json()
             return data
         }

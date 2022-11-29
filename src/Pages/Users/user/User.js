@@ -5,7 +5,7 @@ const User = ({ user, index, refetch }) => {
     const { name, email, _id } = user
     console.log(user)
     const handleUserDalete = (id) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://dream-shop-server.vercel.app/users/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

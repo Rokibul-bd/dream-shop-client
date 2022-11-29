@@ -5,7 +5,7 @@ const SellesSteps = () => {
     const [saleses, setSaleses] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/sellessteps')
+        axios.get('https://dream-shop-server.vercel.app/sellessteps')
             .then(res => {
                 setSaleses(res.data)
             })

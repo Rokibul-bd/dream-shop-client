@@ -9,7 +9,7 @@ const Bookings = () => {
     const { data: bookings = [], refetch } = useQuery({
         queryKey: ['booking', email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/booking?email=${email}`)
+            const res = await fetch(`https://dream-shop-server.vercel.app/booking?email=${email}`)
             const data = res.json()
             return data
         }
