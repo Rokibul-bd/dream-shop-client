@@ -1,16 +1,20 @@
 import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../context/AuthProvider';
 
 const BookingModal = ({ booking, setBooking }) => {
     const { user } = useContext(AuthContext)
     const { name, address, resellPrice } = booking;
-    const bookingData = {
-        email: user.email,
-        name: user.name,
-        booking
-    }
-    const handleBookingProduct = () => {
+    const { register, handleSubmit } = useForm()
+
+    const handleBookingProduct = data => {
+        const bookingData = {
+            email: user.email,
+            name: user.name,
+            booking,
+            mettingAddress: data.mettingAddress
+        }
         fetch('http://localhost:5000/booking', {
             method: 'POST',
             headers: {
@@ -30,7 +34,7 @@ const BookingModal = ({ booking, setBooking }) => {
     return (
         <>
             <input type="checkbox" id="bookingModal" className="modal-toggle" />
-            <div className="modal p-12 flex justify-center items-center">
+            <form onSubmit={handleSubmit(handleBookingProduct)} className="modal p-12 flex justify-center items-center">
                 <div className="modal-box relative">
                     <label htmlFor="bookingModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className='px-12'>
@@ -38,13 +42,17 @@ const BookingModal = ({ booking, setBooking }) => {
                             <h3 className="text-lg font-bold mb-8">{name}</h3>
                             <input type="text" defaultValue={user?.displayName} disabled placeholder="" className="input input-bordered input-primary w-full mb-6" />
                             <input type="email" defaultValue={user?.email} disabled placeholder="" className="input input-bordered input-primary w-full mb-6" />
+                            <label className='text-base'>Resell Price</label>
                             <input defaultValue={resellPrice} disabled type="text" placeholder="" className="input input-bordered input-primary w-full mb-6" />
+                            <label>Seller Address</label>
                             <input disabled defaultValue={address} type="text" placeholder="" className="input input-bordered input-primary w-full mb-6" />
-                            <button onClick={handleBookingProduct} type='submit' className='btn btn-primary w-full'>Booking</button>
+                            <label className='text-base'>Metting Address</label>
+                            <input {...register('mettingAddress')} type="text" placeholder="Metting address" className="input input-bordered input-primary w-full mb-6" />
+                            <button type='submit' className='btn btn-primary w-full'>Booking</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </>
     );
 };

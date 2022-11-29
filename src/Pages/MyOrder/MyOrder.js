@@ -2,9 +2,9 @@ import React from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck, FaTrashAlt } from 'react-icons/fa';
 
-const Booking = ({ booking, refetch }) => {
-    const { _id } = booking
-    const { name, orginalPrice, resellPrice, img, stutas, address } = booking.booking
+const MyOrder = ({ myOrder, refetch }) => {
+    const { _id } = myOrder
+    const { name, orginalPrice, resellPrice, img, stutas, address } = myOrder.booking
     const handleBookingDelete = id => {
         fetch(`http://localhost:5000/booking/${id}`, {
             method: 'DELETE'
@@ -17,7 +17,6 @@ const Booking = ({ booking, refetch }) => {
             })
             .catch(err => console.error(err))
     }
-
     return (
         <tr>
             <td>
@@ -37,7 +36,7 @@ const Booking = ({ booking, refetch }) => {
             <td>{address}</td>
             <td>
                 {
-                    booking?.metting ? <p>{booking?.mettingAddress}</p> : <p>User Metting Defualt Address</p>
+                    myOrder?.metting ? <p>{myOrder?.mettingAddress}</p> : <p>User Metting Defualt Address</p>
 
                 }
             </td>
@@ -53,4 +52,4 @@ const Booking = ({ booking, refetch }) => {
     );
 };
 
-export default Booking;
+export default MyOrder;

@@ -36,7 +36,7 @@ const Seller = ({ seller, refetch, index }) => {
             <td>{email}</td>
             <th>{
                 stutas ? <>
-                    <button className='btn btn-gost btn-sm' disabled>verifyed</button>
+                    <></>
                 </> : <button onClick={() => handleUserVerify(_id)} className='btn btn-gost btn-sm'>Verify Seller</button>
             }
             </th>

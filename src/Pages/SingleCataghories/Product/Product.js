@@ -1,34 +1,10 @@
-import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
+import React from 'react';
 import { FaCheck } from 'react-icons/fa';
-import AddCart from '../../Components/AddCart/AddCart';
-import { AuthContext } from '../../context/AuthProvider';
+
 
 
 const Product = ({ phone, setBooking }) => {
-    const { user } = useContext(AuthContext)
-    const { name, address, resellPrice, orginalPrice, img, ram, rom, id, stutas } = phone
-    const cart = {
-        email: user?.email,
-        userName: user?.displayName,
-        phone,
-    }
-
-    const handleAddCart = () => {
-        fetch('http://localhost:5000/cart', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(cart)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                toast.success('Product Successfully added Cart!')
-            })
-            .catch(err => console.error(err))
-    }
+    const { name, address, resellPrice, orginalPrice, img, ram, rom, stutas } = phone
     return (
         <div className="card md:card-side bg-base-100 shadow-xl">
             <img className='w-96' src={img} alt="Movie" />
@@ -44,7 +20,6 @@ const Product = ({ phone, setBooking }) => {
                         stutas && <FaCheck className='text-green-600 inline-block'></FaCheck>
                     }</p>
                     <div className="flex gap-1">
-                        <AddCart onClick={() => handleAddCart(id)}></AddCart>
                         <label htmlFor='bookingModal' onClick={() => setBooking(phone)} className="btn btn-primary">Booking Now</label>
                     </div>
                 </div>

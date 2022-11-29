@@ -62,11 +62,11 @@ const Login = () => {
                 <label className="label">
                     <p className='text-red-500'>{logInError}</p>
                 </label>
-                <div className="form-control">
-                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
-                </div>
                 <div className="form-control mt-2">
                     <button className="btn btn-primary">Login</button>
+                </div>
+                <div className="form-control">
+                    <button onClick={handleGoogleSignIn} className="btn btn-accent text-white">Sign in with Google</button>
                 </div>
             </div>
         </form>

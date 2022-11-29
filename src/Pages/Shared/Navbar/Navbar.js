@@ -9,7 +9,6 @@ const Navbar = () => {
         <li><Link to="/blogs">Blogs</Link></li>
         {
             user?.uid ? <>
-                <li><Link to="/myorders">My Cart</Link></li>
                 <li><Link to="/deshboard">Deshbord</Link></li>
                 <li><button onClick={logOut} className='btn btn-ghost'>Log Out</button></li>
             </> : <li><Link to="/login">log in</Link></li>

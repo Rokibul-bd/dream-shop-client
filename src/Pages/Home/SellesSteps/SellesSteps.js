@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import Salse from '../Salse/Salse';
 const SellesSteps = () => {
     const [saleses, setSaleses] = useState([])
 
@@ -12,9 +13,13 @@ const SellesSteps = () => {
 
     return (
         <div>
-            <h4 className='text-4xl'>You have total data {saleses.length}</h4>
-            <h3 className='text-center text-2xl font-semibold'>Buy in 3 Simple Steps</h3>
-            <p>Do want to buy phone .follow under simple three steps</p>
+            <h3 className='text-center text-2xl font-semibold'>When you buy a phones follow this three steps</h3>
+            <p className='text-center text-xl mt-5'>Do want to buy phone . you will be try your best the follow three steps.</p>
+            <div className='grid md:grid-cols-3 my-56 gap-4 justify-center'>
+                {
+                    saleses.map(sales => <Salse key={sales._id} sales={sales}></Salse>)
+                }
+            </div>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../context/AuthProvider';
 
 const SignUp = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { registerUser, updateUser, googleSignIn } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('')
     useTitle('Signup')
@@ -80,13 +80,14 @@ const SignUp = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input type="email" {...register('email')} placeholder="email" className="input input-bordered" />
+                    <input type="email" {...register('email', { required: "Email is required" })} className="input input-bordered" placeholder='email' />
+                    {errors.email && <p role="alert">{errors.email?.message}</p>}
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="password" {...register('password')} placeholder="password" className="input input-bordered" />
+                    <input type="password" {...register('password', { required: true, maxLength: 6 })} placeholder="password" className="input input-bordered" />
                     <label className="label">
                         <p className="label-text-alt text-sm">Already you have an account please <Link className='link-hover text-yellow-600' to="/login">Log in</Link>  </p>
                     </label>

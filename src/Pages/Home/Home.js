@@ -6,11 +6,14 @@ import SellesSteps from './SellesSteps/SellesSteps';
 
 
 
+
 const Home = () => {
     useTitle('Home')
     return (
         <div>
-            <Banner></Banner>
+            <div className='hidden md:block'>
+                <Banner></Banner>
+            </div>
             <Catagories></Catagories>
             <SellesSteps></SellesSteps>
         </div>

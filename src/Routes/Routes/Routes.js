@@ -16,6 +16,8 @@ import AdminRoutes from "./AdminRoutes/AdminRoutes";
 import SellerRoutes from "./SellerRoutes/SellerRoutes";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
 import Sellers from "../../Pages/Sellers/Sellers";
+import MyOrders from "../../Pages/MyOrders/MyOrders";
+
 
 
 const router = createBrowserRouter([
@@ -26,10 +28,6 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
-            },
-            {
-                path: '/products',
-                element: <p>product page</p>
             },
             {
                 path: '/login',
@@ -73,6 +71,10 @@ const router = createBrowserRouter([
             {
                 path: '/deshboard/bookings',
                 element: <Bookings></Bookings>
+            },
+            {
+                path: '/deshboard/orders',
+                element: <SellerRoutes><MyOrders></MyOrders></SellerRoutes>
             },
             {
                 path: '/deshboard/addproduct',

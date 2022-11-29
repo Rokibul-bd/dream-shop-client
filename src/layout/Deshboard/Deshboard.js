@@ -19,11 +19,12 @@ const Deshboard = () => {
                 <div className="drawer-side w-full bg-base-200 shadow-md">
                     <label htmlFor="deshboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        <li><Link to="/deshboard/bookings">My Booking</Link></li>
+
                         {
-                            isSeller && <>
+                            isSeller ? <>
                                 <li><Link to="/deshboard/addproduct">Add Product</Link></li>
-                            </>
+                                <li><Link to="/deshboard/orders">My Orders</Link></li>
+                            </> : <li><Link to="/deshboard/bookings">My Booking</Link></li>
                         }
 
                         {
