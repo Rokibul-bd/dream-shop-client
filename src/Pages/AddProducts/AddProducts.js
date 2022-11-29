@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -7,6 +8,17 @@ const AddProducts = () => {
     const { user } = useContext(AuthContext)
     const { email, displayName } = user;
     const { register, handleSubmit, resetField } = useForm()
+
+    // this query only for stutas find
+    const { data: sellers = [] } = useQuery({
+        queryKey: ['sellers', email],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/sellers/${email}`)
+            const data = res.json()
+            return data
+        }
+    })
+    const stutas = sellers[0]?.stutas
     const addProduct = data => {
         const { name, catagoray, resellPrice, orginalPrice, ram, rom, address, usedYear } = data
         const service = {
@@ -18,7 +30,8 @@ const AddProducts = () => {
             address,
             usedYear,
             email: email,
-            seller: displayName
+            seller: displayName,
+            stutas
         }
         fetch(`http://localhost:5000/services/${catagoray}`, {
             method: 'PUT',
@@ -39,7 +52,7 @@ const AddProducts = () => {
 
     return (
         <div className='mx-24 my-28'>
-            <h3>Add Product</h3>
+            <h3 className='text-center text-2xl'>Add Product</h3>
             <form onSubmit={handleSubmit(addProduct)} className='mx-24 mt-16 shadow-md rounded-md px-12 py-8'>
                 <div className="form-control mt-4">
                     <input type="text" {...register('name')} placeholder="Product Name" className="input input-bordered" required />
@@ -65,7 +78,7 @@ const AddProducts = () => {
                 <div className="form-control mt-4">
                     <input type="text" {...register('img')} placeholder="image link" className="input input-bordered" required />
                 </div>
-                <select {...register('catagoray')} className="select select-warning w-full mt-4" required>
+                <select {...register('catagoray', 'have must selected catagoray')} className="select select-warning w-full mt-4" required>
                     <option value="catagoray" disabled selected>Cataghoray</option>
                     <option value="iphone">iphone</option>
                     <option value="samsung">samsung</option>
